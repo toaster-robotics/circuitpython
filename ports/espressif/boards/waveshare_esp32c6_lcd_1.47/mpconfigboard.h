@@ -25,8 +25,8 @@
  */
 
 // Board setup
-#define MICROPY_HW_BOARD_NAME       "ESP32-C6-LCD-1.47"
-#define MICROPY_HW_MCU_NAME         "ESP32-C6FH4"
+#define MICROPY_HW_BOARD_NAME       "ESP32-C6-lcd"
+#define MICROPY_HW_MCU_NAME         "ESP32-C6N4"
 
 // Status LED
 #define MICROPY_HW_NEOPIXEL         (&pin_GPIO8)

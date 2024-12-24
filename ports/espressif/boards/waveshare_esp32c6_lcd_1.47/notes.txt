@@ -1,0 +1,54 @@
+cd ports/espressif
+./esp-idf/install.sh
+source ./esp-idf/export.sh
+make BOARD=waveshare_esp32c6_lcd_1.47 clean && make BOARD=waveshare_esp32c6_lcd_1.47
+
+esptool.py --port /dev/ttyACM0 --chip esp32c6 erase_flash
+esptool.py --port /dev/ttyACM0 --chip esp32c6 --port /dev/ttyACM0 write_flash -z 0x0 build-waveshare_esp32c6_lcd_1.47/firmware.bin
+
+
+esptool.py --port /dev/ttyACM0 --chip esp32c6 erase_flash
+esptool.py --port /dev/ttyACM0 --chip esp32c6 --port /dev/ttyACM0 write_flash -z 0x0 build-espressif_esp32c6_devkitm_1_n4/firmware.bin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+esptool.py --port /dev/ttyACM0 --baud 460800 write_flash -z 0x1000 build-waveshare_esp32c6_lcd_1.47/firmware.bin
+
+
+make BOARD=espressif_esp32c6_devkitm_1_n4 clean && make BOARD=espressif_esp32c6_devkitm_1_n4
+
+esptool.py --port /dev/ttyACM0 erase_flash
+esptool.py --port /dev/ttyACM0 --baud 460800 write_flash -z 0x1000 build-espressif_esp32c6_devkitm_1_n4/firmware.bin
+
+esptool.py --chip esp32c6 --port /dev/ttyACM0 write_flash -z 0x1000 build-espressif_esp32c6_devkitm_1_n4/firmware.bin
+
+
+esptool.py --chip esp32c6 --port /dev/ttyACM0 write_flash -z 0x1000 /home/jason/Downloads/adafruit-circuitpython-espressif_esp32c6_devkitm_1_n4-en_US-9.2.1.bin
+
+esptool.py --chip esp32c6 --port /dev/ttyACM0 write_flash -z 0x1000 /home/jason/Downloads/esp32c6-20241129-v1.24.1.bin
+
+esptool.py --chip esp32c6 --port /dev/ttyACM0 write_flash -z 0x00 /home/jason/Downloads/ESP32-C6-LCD-1.47-Demo/Firmware/ESP32-C6-LCD-1.47-Test.bin
+
+
+
+
+
+
+jason@desktop:~/.arduino15/packages/esp32/tools/esptool_py/4.9.dev3 $ ./esptool --port /dev/ttyACM0 erase_flash
+jason@desktop:~/.arduino15/packages/esp32/tools/esptool_py/4.9.dev3 $ ./esptool --port /dev/ttyACM0 write_flash -z 0x1000 /home/jason/Downloads/adafruit-circuitpython-espressif_esp32c6_devkitm_1_n4-en_US-9.2.1.bin
+
+"/home/jason/.arduino15/packages/esp32/tools/esptool_py/4.9.dev3/esptool" --chip esp32c6 --port "/dev/ttyACM0" --baud 921600  --before default_reset --after hard_reset write_flash  -z --flash_mode keep --flash_freq keep --flash_size keep 0x0 "/home/jason/.cache/arduino/sketches/DA5BBF7573ADD42AECAFAF1ED594FA6D/LVGL_Arduino.ino.bootloader.bin" 0x8000 "/home/jason/.cache/arduino/sketches/DA5BBF7573ADD42AECAFAF1ED594FA6D/LVGL_Arduino.ino.partitions.bin" 0xe000 "/home/jason/.arduino15/packages/esp32/hardware/esp32/3.1.0/tools/partitions/boot_app0.bin" 0x10000 "/home/jason/.cache/arduino/sketches/DA5BBF7573ADD42AECAFAF1ED594FA6D/LVGL_Arduino.ino.bin" 
+esptool.py v4.8.1
+Serial port /dev/ttyACM0
+
